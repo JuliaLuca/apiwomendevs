@@ -10,7 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
   app.set('trust proxy', 1);
   app.useGlobalPipes(new ValidationPipe());
-  const config = new DocumentBuilder().setTitle('Women Devs').setDescription('API de controle de Women Devs').setVersion('1.1').addServer('http://localhost:3333').build();
+  const config = new DocumentBuilder().setTitle('Women Devs').setDescription('API de controle de Women Devs').setVersion('1.1').addServer('https://apiwomendevs-production.up.railway.app/').addServer('http://localhost:3333').build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
   app.enableCors();
